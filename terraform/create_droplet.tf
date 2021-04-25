@@ -9,7 +9,12 @@ provider "digitalocean" {
   token = var.do_token
 }
 
-
+terraform {
+  required_providers {
+    digitalocean = {source = "digitalocean/digitalocean"}
+    }
+    }
+    
 # Get snapshot name
 data "digitalocean_droplet_snapshot" "ubuntu2004-packer-image" {
   name_regex  = "^ubuntu2004-packer"
@@ -18,7 +23,7 @@ data "digitalocean_droplet_snapshot" "ubuntu2004-packer-image" {
 }
 
 # Create a web server
-resource "digitalocean_droplet" "server-by-terrraform" {
+resource "digitalocean_droplet" "server-by-terraform" {
   image      = "${data.digitalocean_droplet_snapshot.ubuntu2004-packer-image.id}"
   name       = var.droplet_name
   region     = var.droplet_region
