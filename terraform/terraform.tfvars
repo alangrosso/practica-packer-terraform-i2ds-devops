@@ -1,0 +1,5 @@
+do_token = "XXXXXXX"
+droplet_ssh_key_id = "XXXXXX"
+droplet_name = "server-by-terraform"
+droplet_size = "s-1vcpu-1gb"
+droplet_region = "nyc1"
